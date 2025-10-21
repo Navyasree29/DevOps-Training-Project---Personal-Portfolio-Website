@@ -4,7 +4,7 @@ provider "aws" {
 
 # Create Security Group
 resource "aws_security_group" "web_sg" {
-  name        = "web-sg"
+  name        = "web-sg-capstone"
   description = "Allow HTTP and SSH"
   ingress {
     from_port   = 22
