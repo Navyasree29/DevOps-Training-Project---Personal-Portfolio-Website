@@ -2,11 +2,11 @@ pipeline {
     agent any
 
     environment {
-        AWS_DEFAULT_REGION = 'ap-south-1'          // Replace if you use a different region
-        ECR_REPO_NAME      = 'capstone-app'       // Replace if you have a different repo name
+        AWS_DEFAULT_REGION = 'ap-south-1'            // Replace if needed
+        ECR_REPO_NAME      = 'capstone-app'         // Replace if needed
         IMAGE_TAG          = 'latest'
-        AWS_ACCOUNT_ID     = '390776111022'       // Replace with your AWS account ID
-        EC2_KEY_NAME       = 'capstone-deploy-key' // Replace with your EC2 key pair name
+        AWS_ACCOUNT_ID     = '390776111022'         // Replace with your AWS Account ID
+        EC2_KEY_NAME       = 'capstone-deploy-key'  // Replace with your EC2 Key Pair name
     }
 
     stages {
@@ -28,13 +28,16 @@ pipeline {
         stage('Push to ECR') {
             steps {
                 bat """
-                REM Log in to AWS ECR
+                REM Check if ECR repository exists, create if not
+                aws ecr describe-repositories --repository-names %ECR_REPO_NAME% --region %AWS_DEFAULT_REGION% || aws ecr create-repository --repository-name %ECR_REPO_NAME% --region %AWS_DEFAULT_REGION%
+
+                REM Login to AWS ECR
                 aws ecr get-login-password --region %AWS_DEFAULT_REGION% | docker login --username AWS --password-stdin %AWS_ACCOUNT_ID%.dkr.ecr.%AWS_DEFAULT_REGION%.amazonaws.com
 
                 REM Tag Docker image
                 docker tag %ECR_REPO_NAME%:%IMAGE_TAG% %AWS_ACCOUNT_ID%.dkr.ecr.%AWS_DEFAULT_REGION%.amazonaws.com/%ECR_REPO_NAME%:%IMAGE_TAG%
 
-                REM Push Docker image to ECR
+                REM Push Docker image
                 docker push %AWS_ACCOUNT_ID%.dkr.ecr.%AWS_DEFAULT_REGION%.amazonaws.com/%ECR_REPO_NAME%:%IMAGE_TAG%
                 """
             }
@@ -52,10 +55,10 @@ pipeline {
 
     post {
         success {
-            echo "Pipeline finished successfully! Your Docker image is in ECR and EC2 should be running."
+            echo "Pipeline finished successfully! Docker image is in ECR and EC2 should be running."
         }
         failure {
-            echo "Pipeline failed. Check logs for errors."
+            echo "Pipeline failed. Check the logs for errors."
         }
     }
 }
