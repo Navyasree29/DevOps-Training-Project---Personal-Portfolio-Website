@@ -1,16 +1,175 @@
-<!doctype html>
-<html>
-  <head>
-    <meta charset="utf-8" />
-    <title>Capstone Demo</title>
-    <style>
-      body { font-family: Arial, sans-serif; text-align:center; margin-top:80px; }
-      h1 { color:#2b8aef; }
-      p { color:#333; }
-    </style>
-  </head>
-  <body>
-    <h1>Capstone Project — Jenkins + Docker + Terraform + AWS</h1>
-    <p>Hosted from Docker container on EC2 (port 8086).</p>
-  </body>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MyPort - Personal portfolio website</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
+</head>
+<body>
+<div id="header">
+    <div class="container">
+        <nav>
+            <img src="Images/logo.png" class="logo">
+            <ul>
+                <li><a href="#header">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#portfolio">Portfolio</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+        <div class="header-text">
+            <p>Student</p>
+            <h1>Hi, I'm <span>Navya Sree</span><br>from India</h1>
+        </div>
+    </div>
+</div>  
+<!------------About--------------------------->
+<div id="about">
+    <div class="container">
+        <div class="row">
+            <div class="about-col-1">
+                <img src="Images/user.png">
+            </div>
+            <div class="about-col-2">
+                <h1 class="sub-title">About Me</h1>
+                <p>A B.E III year undergraduate pursuing Artificial Intelligence and Machine Learning , 
+                    skilled at programming and problem solving.Looking to apply my skills towards getting exposure and understanding working 
+                    culture.Aspiring and hardworking student seeking an internship.</p>
+
+                    <div class="tab-titles">
+                        <p class="tab-links active-link" onclick="opentab('skills')">Skills</p>
+                        <p class="tab-links" onclick="opentab('education')">Education</p>
+                        <p class="tab-links" onclick="opentab('position of responsibility')">Position of responsibility</p>
+                    </div>
+                    <div class="tab-contents active-tab" id="skills">
+                        <ul>
+                            <li><span>Programming languages</span><br>C | Java programming | Python</li>
+                            <li><span>Web Design</span><br>HTML | CSS | React-Redux | JavaScript(Node.js) | Bootstrap</li>
+                            <li><span>Version Control</span><br>Git | Github</li>
+                            <li><span>Database</span><br>MySQL | Database Management Systems (DBMS)</li>
+                            <li><span>Core Subjects</span><br>Artificial Intelligence | Machine Learning | Operating Systems</li>
+                        </ul>
+                    </div>
+                    <div class="tab-contents" id="education">
+                        <ul>
+                            <li><span>2021 - Present</span><br>CSE (AIML) | Neil Gogte Institute Of Technology,Hyd<br>CGPA : 8.70</li>
+                            <li><span>2021</span><br>XII (State)   | Narayana Junior College,Hyd<br>Percentage : 98%</li>
+                            <li><span>2019</span><br>X (State)     | Vijaya Ratna High School,Hyd<br>CGPA : 10.0</li>
+                        </ul>
+                    </div>
+                    <div class="tab-contents" id="position of responsibility">
+                        <ul>
+                            <li><span>2023 - Present</span><br>Student Member | Computer Society Of India (CSI)</li>
+                            <li><span>2023 - Present</span><br>Volunteer | National Service Scheme(NSS) , NGIT</li>
+                        </ul>
+                    </div>
+            </div>
+        </div>
+    </div>
+</div>  
+<!---------------------------------portfolio----------------->
+<div id="portfolio">
+    <div class="container">
+        <h1 class="sub-title">My Work</h1>
+        <div class="work-list">
+            <div class="work">
+                <img src="Images/work-1.png">
+                <div class="layer">
+                    <h3>WeatherNow</h3>
+                    <p>A Weather API based application for real-time weather information on maps with 
+                        additional functionalities.<br>Technologies used : React, Material-UI, JavaScript. </p>
+                    <a href="https://github.com/Navyasree29"><i class="fa-solid fa-up-right-from-square"></i></a>
+                </div>
+            </div>
+            <div class="work">
+                <img src="Images/work-2.png">
+                <div class="layer">
+                    <h3>MyPort</h3>
+                    <p>Developed a responsive and user-friendly portfolio website showcasing my 
+                        professional skills, projects and achievements with integrated dynamic content to 
+                        enhance user experience.<br>Technologies used : HTML, CSS, JavaScript.  </p>
+                    <a href="https://github.com/Navyasree29"><i class="fa-solid fa-up-right-from-square"></i></a>
+                </div>
+            </div>
+            <div class="work">
+                <img src="Images/work-3.png">
+                <div class="layer">
+                    <h3>SummarEase</h3>
+                    <p>An innovative end to end web application powered by Natural Language 
+                        Processing(NLP) technology ,designed to provide users a seamless and efficient text 
+                        summarization experience.<br>Technologies used : NLP , Javascript ,HTML ,CSS ,Bootstrap. </p>
+                    <a href="https://github.com/Navyasree29"><i class="fa-solid fa-up-right-from-square"></i></a>
+                </div>
+            </div>
+        </div>
+        <a href="#" class="btn">See more</a>
+    </div>
+</div>
+<!---------------------------------contact me ----------------------------------------------->
+<div id="contact">
+    <div class="container">
+        <div class="row">
+            <div class="contact-left">
+                <h1 class="sub-title">Contact Me</h1>
+                <p><i class="fa-solid fa-paper-plane"></i> navyasreegoud29@gmail.com</p>
+                <div class="social-icons">
+                    <a href="https://linkedin.com/"><i class="fa-brands fa-linkedin"></i></a>
+                    <a href="https://github.com/"><i class="fa-brands fa-github"></i></a>
+                    <a href="https://instagram.com/"><i class="fa-brands fa-instagram"></i></a>
+                </div>
+            </div>
+            <div class="contact-right">
+                <form name="submit-to-google-sheet">
+                    <input type="text" name="Name" placeholder="Your Name" required>
+                    <input type="email" name="Email" placeholder="Your Email" required>
+                    <textarea name="Message" rows="6" placeholder="Your Message"></textarea>
+                    <button type="Submit" class="btn btn2">Submit</button>
+                </form>
+                <span id="msg"></span>
+            </div>
+        </div>
+    </div>
+    <div class="copyright">
+        <p>Copyright Navya.Made with <i class="fa-solid fa-heart"></i> by MyPort.</p>
+    </div>
+</div>
+
+
+
+
+<script>
+    var tablinks=document.getElementsByClassName("tab-links");
+    var tabcontents=document.getElementsByClassName("tab-contents");
+    function opentab(tabname){
+        for(tablink of tablinks){
+            tablink.classList.remove("active-link");
+        }
+        for(tabcontent of tabcontents){
+            tabcontent.classList.remove("active-tab");
+        }
+        event.currentTarget.classList.add("active-link");
+        document.getElementById(tabname).classList.add("active-tab");
+    }
+</script>
+<script>
+    const scriptURL = 'https://script.google.com/macros/s/AKfycbz8GRvrsCGrkuRokWQ55t5qpRtu6KkiHmIkfisZi3ZW0kyj-Iv3Mgf1pfdAvswL6Vv-Gw/exec'
+    const form = document.forms['submit-to-google-sheet']
+    const msg=document.getElementById("msg")
+    form.addEventListener('submit', e => {
+      e.preventDefault()
+      fetch(scriptURL, { method: 'POST', body: new FormData(form)})
+        .then(response => {
+            msg.innerHTML="Message sent successfully"
+            setTimeout(function(){
+                msg.innerHTML=""
+            },5000)
+            form.reset()
+        })
+        .catch(error => console.error('Error!', error.message))
+    })
+  </script>
+</body>
 </html>
